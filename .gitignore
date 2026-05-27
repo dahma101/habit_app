@@ -1,0 +1,75 @@
+# ─── Python / Django ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.Python
+
+# Django
+*.sqlite3
+local_settings.py
+backend/staticfiles/
+backend/mediafiles/
+backend/media/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+!backend/.env.example
+
+# Logs
+*.log
+backend/logs/
+logs/
+
+# Sphinx build output
+backend/docs/_build/
+
+# mypy / type stubs
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ─── Node / Frontend ──────────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+# Keep docker-compose.yml and Dockerfiles — ignore generated volumes/overrides
+docker-compose.override.yml
+.docker/
+
+# ─── Editors / IDEs ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Secrets / Credentials ────────────────────────────────────────────────────
+*.pem
+*.key
+*.cert
+*.p12
+secrets/

@@ -1,0 +1,27 @@
+# Stage 1: build Sphinx HTML
+FROM python:3.13-slim AS builder
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DJANGO_SETTINGS_MODULE=config.settings.docs
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq-dev \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN sphinx-build -b html docs docs/_build/html
+
+# Stage 2: serve with nginx
+FROM nginx:alpine
+
+COPY --from=builder /app/docs/_build/html /usr/share/nginx/html
+
+EXPOSE 80

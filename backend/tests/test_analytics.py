@@ -42,7 +42,6 @@ class TestCalculateDueWindow:
     """Tests for calculate_due_window() pure function."""
 
     def test_daily_spans_one_day(self) -> None:
-        """Daily window spans exactly one day."""
         ref = datetime(2024, 6, 15, 10, 0, 0, tzinfo=timezone.utc)
         due_from, due_to = calculate_due_window("daily", ref)
 
@@ -51,7 +50,6 @@ class TestCalculateDueWindow:
         assert due_to > due_from
 
     def test_as_many_as_possible_spans_today(self) -> None:
-        """as_many_as_possible window covers the same calendar day."""
         ref = datetime(2024, 6, 15, 14, 30, 0, tzinfo=timezone.utc)
         due_from, due_to = calculate_due_window("as_many_as_possible", ref)
 
@@ -60,14 +58,12 @@ class TestCalculateDueWindow:
         assert due_to > due_from
 
     def test_weekly_starts_on_monday(self) -> None:
-        """Weekly window always starts on Monday."""
         ref = datetime(2024, 6, 19, 10, 0, 0, tzinfo=timezone.utc)  # Wednesday
         due_from, due_to = calculate_due_window("weekly", ref)
 
         assert due_from.weekday() == 0  # Monday
 
     def test_monthly_spans_full_month(self) -> None:
-        """Monthly window starts on the 1st and ends on the last day."""
         ref = datetime(2024, 6, 15, 10, 0, 0, tzinfo=timezone.utc)
         due_from, due_to = calculate_due_window("monthly", ref)
 
@@ -75,7 +71,6 @@ class TestCalculateDueWindow:
         assert due_to.month == 6
 
     def test_twice_monthly_first_half(self) -> None:
-        """Twice-monthly first window is days 1–15."""
         ref = datetime(2024, 6, 10, 10, 0, 0, tzinfo=timezone.utc)
         due_from, due_to = calculate_due_window("twice_monthly", ref)
 
@@ -83,7 +78,6 @@ class TestCalculateDueWindow:
         assert due_to.day == 15
 
     def test_twice_monthly_second_half(self) -> None:
-        """Twice-monthly second window starts on day 16."""
         ref = datetime(2024, 6, 20, 10, 0, 0, tzinfo=timezone.utc)
         due_from, _ = calculate_due_window("twice_monthly", ref)
 
@@ -187,7 +181,6 @@ class TestBuildHabitHistoryReport:
 
         assert report["streak_count"] == 7
         assert len(report["log_history"]) == 2
-        # Sorted descending
         assert report["log_history"][0]["id"] == "log1"
 
 

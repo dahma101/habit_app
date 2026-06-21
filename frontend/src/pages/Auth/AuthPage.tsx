@@ -94,7 +94,7 @@ export default function AuthPage() {
         {/* Hero text */}
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Typography variant="h3" fontWeight="bold" sx={{ color: "white", mb: 1 }}>
-            IU Habit App
+            MeinHabit
           </Typography>
           <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.75)" }}>
             Build consistency, one habit at a time

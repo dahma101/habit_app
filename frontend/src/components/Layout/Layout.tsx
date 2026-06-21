@@ -70,7 +70,7 @@ export default function Layout({ children }: Props) {
           fontWeight="bold"
           sx={{ color: "white", letterSpacing: 0.5 }}
         >
-          IU Habit App
+          MeinHabit
         </Typography>
         <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.6)" }}>
           Build better habits
@@ -215,7 +215,7 @@ export default function Layout({ children }: Props) {
 
             {isMobile && (
               <Typography variant="h6" fontWeight="bold" sx={{ flexGrow: 1, color: "#1e1b4b" }}>
-                IU Habit App
+                MeinHabit
               </Typography>
             )}
 

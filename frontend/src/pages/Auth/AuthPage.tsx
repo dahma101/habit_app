@@ -137,6 +137,8 @@ export default function AuthPage() {
             {tab === 0 && (
               <Box
                 component="form"
+                noValidate
+                onSubmit={loginForm.handleSubmit(handleLogin)}
                 sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}
               >
                 <TextField
@@ -156,10 +158,10 @@ export default function AuthPage() {
                   helperText={loginForm.formState.errors.password?.message}
                 />
                 <Button
+                  type="submit"
                   variant="contained"
                   size="large"
                   fullWidth
-                  onClick={loginForm.handleSubmit(handleLogin)}
                   disabled={loginForm.formState.isSubmitting}
                   sx={{
                     py: 1.5,
@@ -178,6 +180,8 @@ export default function AuthPage() {
             {tab === 1 && (
               <Box
                 component="form"
+                noValidate
+                onSubmit={registerForm.handleSubmit(handleRegister)}
                 sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}
               >
                 <TextField
@@ -247,10 +251,10 @@ export default function AuthPage() {
                 </Box>
 
                 <Button
+                  type="submit"
                   variant="contained"
                   size="large"
                   fullWidth
-                  onClick={registerForm.handleSubmit(handleRegister)}
                   disabled={registerForm.formState.isSubmitting}
                   sx={{
                     py: 1.5,

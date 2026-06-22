@@ -2,6 +2,16 @@
 
 A full-stack habit tracking application built with Django (backend) and React (frontend), Object-Oriented based Programming.
 applying best practices and relevant security measures.
+can be assessed from https://meinhabit.de/
+
+**Routing (all HTTPS):**
+
+| Hostname                                                             | Serves |
+|----------------------------------------------------------------------|--------|
+| [meinhabit.de](https://meinhabit.de/)                                | Frontend (React SPA) |
+| [api.meinhabit.de](https://api.meinhabit.de)                         | Backend (Django API ) |
+| [api.meinhabit.de/api/v1/docs](https://api.meinhabit.de/api/v1/docs) | Backend ( Swagger) |
+| [docs.meinhabit.de](https://docs.meinhabit.de/)                                       | Sphinx documentation |
 
 ## Tech Stack
 

@@ -1,0 +1,28 @@
+{
+	email admin@meinhabit.de
+}
+
+# Shared TLS config: obtain/renew Let's Encrypt certs via the Cloudflare DNS-01 challenge.
+(cf_tls) {
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+	}
+}
+
+meinhabit.de, www.meinhabit.de {
+	import cf_tls
+	encode gzip
+	reverse_proxy frontend:80
+}
+
+api.meinhabit.de {
+	import cf_tls
+	encode gzip
+	reverse_proxy backend:8000
+}
+
+docs.meinhabit.de {
+	import cf_tls
+	encode gzip
+	reverse_proxy docs:80
+}

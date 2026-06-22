@@ -33,7 +33,7 @@ const DRAWER_WIDTH = 240;
 const navItems = [
   { label: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
   { label: "Lists", icon: <ListAltIcon />, path: "/lists" },
-  { label: "Progress", icon: <BarChartIcon />, path: "/reports" },
+  { label: "Analytics (Progress)", icon: <BarChartIcon />, path: "/reports" },
 ];
 
 interface Props {

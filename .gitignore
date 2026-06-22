@@ -25,8 +25,13 @@ backend/media/
 .env
 .env.local
 .env.*.local
+.env.prod
+backend/.env.prod
 !.env.example
 !backend/.env.example
+!.env.prod.example
+!backend/.env.prod.example
+README.prod.md
 
 # Logs
 *.log
